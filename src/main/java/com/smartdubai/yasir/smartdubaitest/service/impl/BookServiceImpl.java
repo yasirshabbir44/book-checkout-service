@@ -9,6 +9,8 @@ import com.smartdubai.yasir.smartdubaitest.service.BookService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -29,6 +31,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<BookDTO> getAllBanner() {
        return  menuRepository.findAll().stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize) {
+        return  menuRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())).stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
     }
 
     @Override

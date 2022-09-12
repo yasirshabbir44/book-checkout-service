@@ -7,6 +7,8 @@ import java.util.List;
 public interface BookService {
     public List<BookDTO> getAllBanner();
 
+    List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize);
+
     public BookDTO getMenuById(Long id);
 
     public BookDTO save(BookDTO menuDTO);
