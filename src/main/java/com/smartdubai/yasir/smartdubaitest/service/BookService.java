@@ -9,7 +9,7 @@ public interface BookService {
 
     List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize);
 
-    public BookDTO getMenuById(Long id);
+    public BookDTO getBookById(Long id);
 
     public BookDTO save(BookDTO menuDTO);
 

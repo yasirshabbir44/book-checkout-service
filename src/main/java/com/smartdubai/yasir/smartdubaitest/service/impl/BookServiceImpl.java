@@ -14,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.smartdubai.yasir.smartdubaitest.util.ResponseCode.DATA_NOT_FOUND_CODE;
@@ -24,31 +25,31 @@ import static com.smartdubai.yasir.smartdubaitest.util.ResponseCode.DATA_NOT_FOU
 public class BookServiceImpl implements BookService {
 
 
-    private final BookRepository menuRepository;
+    private final BookRepository bookRepository;
     private final ModelMapper modelMapper;
 
 
     @Override
     public List<BookDTO> getAllBanner() {
-       return  menuRepository.findAll().stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
+       return  bookRepository.findAll().stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
     }
 
     @Override
     public List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize) {
-        return  menuRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())).stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
+        return  bookRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())).stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
     }
 
     @Override
-    public BookDTO getMenuById(Long id) {
+    public BookDTO getBookById(Long id) {
 
-        return menuRepository.findById(id).map(brand -> modelMapper.map(brand,BookDTO.class))
+        return bookRepository.findById(id).map(brand -> modelMapper.map(brand,BookDTO.class))
                 .orElseThrow(() -> new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG));
     }
 
     @Override
     public BookDTO save(BookDTO menuDTO) {
         Book book = modelMapper.map(menuDTO, Book.class);
-        book = menuRepository.save(book);
+        book = bookRepository.save(book);
 
        return modelMapper.map(book, BookDTO.class);
     }
@@ -56,7 +57,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public void delete(Long id) {
         try {
-            menuRepository.deleteById(id);
+            bookRepository.deleteById(id);
         } catch (IllegalArgumentException | EmptyResultDataAccessException exception) {
             throw new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG);
         }
@@ -65,9 +66,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDTO update(BookDTO bookDTO) {
 
-        Book book = modelMapper.map(bookDTO, Book.class);
-        book = menuRepository.save(book);
+        return bookRepository.findById(bookDTO.getId())
+                .map(book -> modelMapper.map(bookDTO, Book.class))
+                .map(book -> bookRepository.save(book))
+                .map(book -> modelMapper.map(book, BookDTO.class))
+                .orElseThrow(()->new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG));
 
-        return modelMapper.map(book, BookDTO.class);
     }
 }
