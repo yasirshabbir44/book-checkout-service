@@ -6,6 +6,7 @@ THis REST API for an online bookstore, where the user can perform the following 
 - Checkout operation for single or multiple books which will return the total payable amount.
 
 ###Project Description
+
 In this Project we used following 
 - Spring Boot
 - Java 14
