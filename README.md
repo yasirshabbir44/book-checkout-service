@@ -6,12 +6,12 @@ THis REST API for an online bookstore, where the user can perform the following 
 
 --> Checkout operation for single or multiple books which will return the total payable amount.
 
+###Project Description
+In this Project we used Spring Boot
 
-Books DTO model
 
-Name
-Description
-Author
-Type/Classification
-Price
-ISBN
+### Swagger
+
+SwaggerUI can accessible on following URL
+
+http://localhost:8080/swagger-ui/index.html#/
