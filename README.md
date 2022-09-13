@@ -13,6 +13,7 @@ In this Project we used following
 - SpringData along with InMemoryDB
 - SwaggerUI
 - Lombok
+- Docker
 
 
 ### Swagger
@@ -20,6 +21,9 @@ In this Project we used following
 SwaggerUI can accessible on following URL
 
 http://localhost:8080/swagger-ui/index.html#/
+
+![SwaggerUI screenshot](https://i.postimg.cc/HxkBT840/Screen-Shot-2022-09-13-at-9-27-53-PM.png)
+
 
 
 
@@ -36,3 +40,6 @@ docker build -t="yasir/docker-bookservice" .
  ```
 docker run -p 9090:8080 {IMAGE_ID}}
 ```
+
+
+![Docker Screen shot to run the image](https://i.postimg.cc/DfqdRgTV/Screen-Shot-2022-09-13-at-9-33-16-PM.png)
