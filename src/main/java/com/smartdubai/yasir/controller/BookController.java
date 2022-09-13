@@ -40,7 +40,7 @@ public class BookController {
                 .builder()
                 .code(GET_BOOK_CODE)
                 .message(GET_BOOK_MSG)
-                .body(bookService.getBookById(bookId))
+                .body(bookService.getBookDTOById(bookId))
                 .build());
     }
 

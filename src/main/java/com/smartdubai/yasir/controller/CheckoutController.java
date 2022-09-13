@@ -6,6 +6,7 @@ import com.smartdubai.yasir.dto.CheckoutDTO;
 import com.smartdubai.yasir.dto.CheckoutResponseDTO;
 import com.smartdubai.yasir.exception.BookException;
 import com.smartdubai.yasir.service.BookService;
+import com.smartdubai.yasir.service.CheckoutService;
 import com.smartdubai.yasir.util.Response;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,27 +25,18 @@ import static com.smartdubai.yasir.util.ResponseCode.*;
 public class CheckoutController {
 
 
-    private final BookService bookService;
+    private final CheckoutService checkoutService;
 
 
     @PostMapping
     public ResponseEntity<?> post(@Valid @RequestBody List<CheckoutDTO> checkoutDTOList) {
 
-        final Double total = checkoutDTOList.stream()
-                .mapToDouble(val->{
-                    BookDTO bookDTO = bookService.getBookById(val.getBookId());
-                    return bookDTO.getPrice() * val.getQuantity();
-                }).sum();
-
-        final var response = CheckoutResponseDTO.builder()
-                .checkoutDTOList(checkoutDTOList)
-                .totalPrice(total.floatValue())
-                .build();
 
 
         return ResponseEntity.ok(Response.builder()
-                .code(CHECKOUT_CODE).message(CHECKOUT_MSG)
-                        .body(response)
+                .code(CHECKOUT_CODE)
+                .message(CHECKOUT_MSG)
+                .body(checkoutService)
                 .build());
     }
 

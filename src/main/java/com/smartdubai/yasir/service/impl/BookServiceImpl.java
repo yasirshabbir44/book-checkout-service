@@ -37,9 +37,16 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDTO getBookById(Long id) {
+    public BookDTO getBookDTOById(Long id) {
 
         return bookRepository.findById(id).map(brand -> modelMapper.map(brand,BookDTO.class))
+                .orElseThrow(() -> new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
+    }
+
+    @Override
+    public Book getBookById(Long id) {
+
+        return bookRepository.findById(id)
                 .orElseThrow(() -> new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
     }
 
