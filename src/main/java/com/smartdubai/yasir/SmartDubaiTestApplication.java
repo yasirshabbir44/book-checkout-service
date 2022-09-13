@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest;
+package com.smartdubai.yasir;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest.exception;
+package com.smartdubai.yasir.exception;
 
 
 import lombok.*;

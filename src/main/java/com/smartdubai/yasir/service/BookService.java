@@ -1,6 +1,6 @@
-package com.smartdubai.yasir.smartdubaitest.service;
+package com.smartdubai.yasir.service;
 
-import com.smartdubai.yasir.smartdubaitest.dto.BookDTO;
+import com.smartdubai.yasir.dto.BookDTO;
 
 import java.util.List;
 

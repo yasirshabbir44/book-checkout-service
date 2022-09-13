@@ -1,10 +1,10 @@
-package com.smartdubai.yasir.smartdubaitest.controller;
+package com.smartdubai.yasir.controller;
 
 
-import com.smartdubai.yasir.smartdubaitest.dto.BookDTO;
-import com.smartdubai.yasir.smartdubaitest.exception.BookException;
-import com.smartdubai.yasir.smartdubaitest.service.BookService;
-import com.smartdubai.yasir.smartdubaitest.util.Response;
+import com.smartdubai.yasir.exception.BookException;
+import com.smartdubai.yasir.dto.BookDTO;
+import com.smartdubai.yasir.service.BookService;
+import com.smartdubai.yasir.util.Response;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static com.smartdubai.yasir.smartdubaitest.util.ResponseCode.*;
+import static com.smartdubai.yasir.util.ResponseCode.*;
 
 @RestController
 @RequestMapping("/api/book")
@@ -27,8 +27,8 @@ public class BookController {
         return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBanner()).build());
     }
 
-    @GetMapping
-    public ResponseEntity<?> getAllBook(@RequestParam() Integer pageNumber,@RequestParam() Integer pageSize) {
+    @GetMapping("/list")
+    public ResponseEntity<?> getAllBookWithPagination(@RequestParam() Integer pageNumber,@RequestParam() Integer pageSize) {
         return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBanner(pageNumber,pageSize)).build());
     }
 

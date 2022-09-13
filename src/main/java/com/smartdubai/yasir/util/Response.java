@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest.util;
+package com.smartdubai.yasir.util;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

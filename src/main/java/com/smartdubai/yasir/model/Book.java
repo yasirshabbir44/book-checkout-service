@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest.model;
+package com.smartdubai.yasir.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest.config;
+package com.smartdubai.yasir.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

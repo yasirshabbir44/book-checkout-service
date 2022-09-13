@@ -1,6 +1,6 @@
-package com.smartdubai.yasir.smartdubaitest.repository;
+package com.smartdubai.yasir.repository;
 
-import com.smartdubai.yasir.smartdubaitest.model.Book;
+import com.smartdubai.yasir.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

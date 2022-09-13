@@ -1,11 +1,12 @@
-package com.smartdubai.yasir.smartdubaitest.service.impl;
+package com.smartdubai.yasir.service.impl;
 
 
-import com.smartdubai.yasir.smartdubaitest.dto.BookDTO;
-import com.smartdubai.yasir.smartdubaitest.model.Book;
-import com.smartdubai.yasir.smartdubaitest.repository.BookRepository;
-import com.smartdubai.yasir.smartdubaitest.exception.BookException;
-import com.smartdubai.yasir.smartdubaitest.service.BookService;
+import com.smartdubai.yasir.dto.BookDTO;
+import com.smartdubai.yasir.exception.BookException;
+import com.smartdubai.yasir.model.Book;
+import com.smartdubai.yasir.repository.BookRepository;
+import com.smartdubai.yasir.service.BookService;
+import com.smartdubai.yasir.util.ResponseCode;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,11 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static com.smartdubai.yasir.smartdubaitest.util.ResponseCode.DATA_NOT_FOUND_CODE;
-import static com.smartdubai.yasir.smartdubaitest.util.ResponseCode.DATA_NOT_FOUND_MSG;
 
 @AllArgsConstructor
 @Component
@@ -43,7 +40,7 @@ public class BookServiceImpl implements BookService {
     public BookDTO getBookById(Long id) {
 
         return bookRepository.findById(id).map(brand -> modelMapper.map(brand,BookDTO.class))
-                .orElseThrow(() -> new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG));
+                .orElseThrow(() -> new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
     }
 
     @Override
@@ -59,7 +56,7 @@ public class BookServiceImpl implements BookService {
         try {
             bookRepository.deleteById(id);
         } catch (IllegalArgumentException | EmptyResultDataAccessException exception) {
-            throw new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG);
+            throw new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG);
         }
     }
 
@@ -70,7 +67,7 @@ public class BookServiceImpl implements BookService {
                 .map(book -> modelMapper.map(bookDTO, Book.class))
                 .map(book -> bookRepository.save(book))
                 .map(book -> modelMapper.map(book, BookDTO.class))
-                .orElseThrow(()->new BookException(DATA_NOT_FOUND_CODE,DATA_NOT_FOUND_MSG));
+                .orElseThrow(()->new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
 
     }
 }

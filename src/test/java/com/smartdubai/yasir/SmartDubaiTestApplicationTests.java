@@ -1,4 +1,4 @@
-package com.smartdubai.yasir.smartdubaitest;
+package com.smartdubai.yasir;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
