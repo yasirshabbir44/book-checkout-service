@@ -43,3 +43,11 @@ docker run -p 9090:8080 {IMAGE_ID}}
 
 
 ![Docker Screen shot to run the image](https://i.postimg.cc/DfqdRgTV/Screen-Shot-2022-09-13-at-9-33-16-PM.png)
+
+
+
+
+**First need to create Book via POST as illustrating the picture**
+
+
+![enter image description here](https://i.postimg.cc/sXjXg7X2/Screen-Shot-2022-09-13-at-10-14-22-PM.png)

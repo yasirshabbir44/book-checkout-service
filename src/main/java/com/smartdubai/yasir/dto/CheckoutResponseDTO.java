@@ -15,6 +15,7 @@ public class CheckoutResponseDTO {
     private List<CheckoutDTO> checkoutDTOList;
 
     private Float totalPrice;
+    private Float totalDiscount;
 
 
 

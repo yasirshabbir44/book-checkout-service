@@ -3,6 +3,7 @@ package com.smartdubai.yasir.controller;
 
 import com.smartdubai.yasir.dto.BookDTO;
 import com.smartdubai.yasir.dto.CheckoutDTO;
+import com.smartdubai.yasir.dto.CheckoutRequestDTO;
 import com.smartdubai.yasir.dto.CheckoutResponseDTO;
 import com.smartdubai.yasir.exception.BookException;
 import com.smartdubai.yasir.service.BookService;
@@ -29,14 +30,11 @@ public class CheckoutController {
 
 
     @PostMapping
-    public ResponseEntity<?> post(@Valid @RequestBody List<CheckoutDTO> checkoutDTOList) {
-
-
-
+    public ResponseEntity<?> checkout(@Valid @RequestBody CheckoutRequestDTO checkoutRequestDTO) {
         return ResponseEntity.ok(Response.builder()
                 .code(CHECKOUT_CODE)
                 .message(CHECKOUT_MSG)
-                .body(checkoutService)
+                .body(checkoutService.checkout(checkoutRequestDTO))
                 .build());
     }
 
