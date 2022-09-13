@@ -2,12 +2,16 @@
 
 THis REST API for an online bookstore, where the user can perform the following operations:
 
---> CRUD operations on Books
-
---> Checkout operation for single or multiple books which will return the total payable amount.
+- CRUD operations on Books 
+- Checkout operation for single or multiple books which will return the total payable amount.
 
 ###Project Description
-In this Project we used Spring Boot
+In this Project we used following 
+- Spring Boot
+- Java 14
+- SpringData along with InMemoryDB
+- SwaggerUI
+- Lombok
 
 
 ### Swagger
