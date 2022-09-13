@@ -51,3 +51,11 @@ docker run -p 9090:8080 {IMAGE_ID}}
 
 
 ![enter image description here](https://i.postimg.cc/sXjXg7X2/Screen-Shot-2022-09-13-at-10-14-22-PM.png)
+
+
+
+
+**Now after creating Book we can call Checkout fuction which look like this**
+
+
+![enter image description here](https://i.postimg.cc/nzSD80kx/Screen-Shot-2022-09-13-at-10-18-41-PM.png)
