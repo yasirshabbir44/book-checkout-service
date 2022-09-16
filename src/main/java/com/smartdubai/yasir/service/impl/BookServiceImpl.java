@@ -27,12 +27,12 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public List<BookDTO> getAllBanner() {
+    public List<BookDTO> getAllBook() {
        return  bookRepository.findAll().stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
     }
 
     @Override
-    public List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize) {
+    public List<BookDTO> getAllBook(Integer pageNumber, Integer pageSize) {
         return  bookRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())).stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
     }
 

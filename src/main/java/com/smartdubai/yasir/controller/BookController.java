@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.List;
+
 import static com.smartdubai.yasir.util.ResponseCode.*;
 
 @RestController
@@ -24,12 +26,12 @@ public class BookController {
 
     @GetMapping
     public ResponseEntity<?> getAllBook() {
-        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBanner()).build());
+        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBook()).build());
     }
 
     @GetMapping("/list")
     public ResponseEntity<?> getAllBookWithPagination(@RequestParam() Integer pageNumber,@RequestParam() Integer pageSize) {
-        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBanner(pageNumber,pageSize)).build());
+        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBook(pageNumber,pageSize)).build());
     }
 
 

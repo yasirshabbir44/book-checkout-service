@@ -6,9 +6,9 @@ import com.smartdubai.yasir.model.Book;
 import java.util.List;
 
 public interface BookService {
-    public List<BookDTO> getAllBanner();
+    public List<BookDTO> getAllBook();
 
-    List<BookDTO> getAllBanner(Integer pageNumber, Integer pageSize);
+    List<BookDTO> getAllBook(Integer pageNumber, Integer pageSize);
 
     public Book getBookById(Long id);
     public BookDTO getBookDTOById(Long id);
