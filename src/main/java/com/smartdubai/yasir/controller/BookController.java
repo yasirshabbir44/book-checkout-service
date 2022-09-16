@@ -25,25 +25,15 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping
-    public ResponseEntity<?> getAllBook() {
-        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBook()).build());
+    public List<BookDTO> getAllBook() {
+        return bookService.getAllBook();
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<?> getAllBookWithPagination(@RequestParam() Integer pageNumber,@RequestParam() Integer pageSize) {
-        return ResponseEntity.ok(Response.builder().code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG).body(bookService.getAllBook(pageNumber,pageSize)).build());
-    }
 
 
     @GetMapping("/{bookId}")
-    public ResponseEntity<?> getProduct(@PathVariable("bookId") long bookId) {
-
-        return ResponseEntity.ok(Response
-                .builder()
-                .code(GET_BOOK_CODE)
-                .message(GET_BOOK_MSG)
-                .body(bookService.getBookDTOById(bookId))
-                .build());
+    public BookDTO getBook(@PathVariable("bookId") long bookId) {
+        return bookService.getBookDTOById(bookId);
     }
 
 
