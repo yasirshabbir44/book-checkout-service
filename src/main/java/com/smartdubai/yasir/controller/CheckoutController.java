@@ -21,13 +21,11 @@ import java.util.List;
 import static com.smartdubai.yasir.util.ResponseCode.*;
 
 @RestController
-@RequestMapping("/api/checkout")
+@RequestMapping("C")
 @AllArgsConstructor
 public class CheckoutController {
 
-
     private final CheckoutService checkoutService;
-
 
     @PostMapping
     public ResponseEntity<?> checkout(@Valid @RequestBody CheckoutRequestDTO checkoutRequestDTO) {

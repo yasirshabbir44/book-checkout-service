@@ -12,10 +12,7 @@ import java.util.List;
 public class CheckoutResponseDTO {
 
 
-    private List<CheckoutDTO> checkoutDTOList;
-
-    private Float totalPrice;
-    private Float totalDiscount;
+   private Double total;
 
 
 
