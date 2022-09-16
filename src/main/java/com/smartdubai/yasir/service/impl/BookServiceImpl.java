@@ -23,23 +23,18 @@ public class BookServiceImpl implements BookService {
 
 
     private final BookRepository bookRepository;
-    private final ModelMapper modelMapper;
 
 
     @Override
     public List<BookDTO> getAllBook() {
-       return  bookRepository.findAll().stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
+       return  bookRepository.findAll().stream().map(this::map).collect(Collectors.toList());
     }
 
-    @Override
-    public List<BookDTO> getAllBook(Integer pageNumber, Integer pageSize) {
-        return  bookRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())).stream().map(menu -> modelMapper.map(menu , BookDTO.class)).collect(Collectors.toList());
-    }
 
     @Override
     public BookDTO getBookDTOById(Long id) {
 
-        return bookRepository.findById(id).map(brand -> modelMapper.map(brand,BookDTO.class))
+        return bookRepository.findById(id).map(this::map)
                 .orElseThrow(() -> new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
     }
 
@@ -51,11 +46,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public BookDTO save(BookDTO menuDTO) {
-        Book book = modelMapper.map(menuDTO, Book.class);
+    public BookDTO save(BookDTO bookDTO) {
+        Book book = this.map(bookDTO);
         book = bookRepository.save(book);
 
-       return modelMapper.map(book, BookDTO.class);
+       return this.map(book);
     }
 
     @Override
@@ -72,10 +67,39 @@ public class BookServiceImpl implements BookService {
     public BookDTO update(BookDTO bookDTO) {
 
         return bookRepository.findById(bookDTO.getId())
-                .map(book -> modelMapper.map(bookDTO, Book.class))
+                .map(book -> this.map(bookDTO))
                 .map(book -> bookRepository.save(book))
-                .map(book -> modelMapper.map(book, BookDTO.class))
+                .map(this::map)
                 .orElseThrow(()->new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
 
     }
+
+
+    private BookDTO map(Book book){
+        return BookDTO.builder()
+                .id(book.getId())
+                .isbn(book.getIsbn())
+                .price(book.getPrice())
+                .name(book.getName())
+                .type(book.getType())
+                .description(book.getDescription())
+                .author(book.getAuthor())
+                .createDate(book.getCreateDate())
+                .modifyDate(book.getModifyDate())
+                .build();
+    }
+
+
+    private Book map(BookDTO bookDTO){
+        return Book.builder()
+                .id(bookDTO.getId())
+                .isbn(bookDTO.getIsbn())
+                .price(bookDTO.getPrice())
+                .name(bookDTO.getName())
+                .type(bookDTO.getType())
+                .description(bookDTO.getDescription())
+                .author(bookDTO.getAuthor())
+                .build();
+    }
+
 }
