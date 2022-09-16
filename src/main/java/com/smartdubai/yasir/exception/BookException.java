@@ -4,10 +4,7 @@ package com.smartdubai.yasir.exception;
 import lombok.*;
 
 @Getter
-@Setter
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 public class BookException extends RuntimeException {
 
     private Integer exceptionCode;

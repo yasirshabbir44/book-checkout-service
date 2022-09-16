@@ -59,12 +59,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         try {
             bookRepository.deleteById(id);
         } catch (IllegalArgumentException | EmptyResultDataAccessException exception) {
             throw new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG);
         }
+        return true;
     }
 
     @Override

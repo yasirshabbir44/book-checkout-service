@@ -15,7 +15,7 @@ public interface BookService {
 
     public BookDTO save(BookDTO menuDTO);
 
-    public void delete(Long id);
+    public boolean delete(Long id);
 
     public BookDTO update(BookDTO bookDTO);
 }

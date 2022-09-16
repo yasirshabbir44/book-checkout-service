@@ -46,7 +46,7 @@ public class BookController {
 
 
     @PostMapping
-    public ResponseEntity<?> post(@Valid @RequestBody BookDTO bookDTO) {
+    public ResponseEntity<?> createBook(@Valid @RequestBody BookDTO bookDTO) {
 
         return ResponseEntity.ok(Response.builder()
                 .code(CREATE_BOOK_CODE).message(CREATE_BOOK_MSG)
