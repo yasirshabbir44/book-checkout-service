@@ -16,46 +16,20 @@ In this Project we used following
 - Docker
 
 
-### Swagger
-
-SwaggerUI can accessible on following URL
-
-http://localhost:8080/swagger-ui/index.html#/
-
-![SwaggerUI screenshot](https://i.postimg.cc/HxkBT840/Screen-Shot-2022-09-13-at-9-27-53-PM.png)
 
 
 
+### Run terminal terminal
+java -jar SmartDubaiTest-1.0.jar
 
 
-**How to run project through Docker**
+### Run through Docker
 
 First go to Project path through Terminal and run this command
 
 ```
-docker build -t="yasir/docker-bookservice" .
+docker build . --tag app
+
+docker run -it -p8080:8080 app:latest .
 ```
 
-*then run last command and boom*
- ```
-docker run -p 9090:8080 {IMAGE_ID}}
-```
-
-
-![Docker Screen shot to run the image](https://i.postimg.cc/DfqdRgTV/Screen-Shot-2022-09-13-at-9-33-16-PM.png)
-
-
-
-
-**First need to create Book via POST as illustrating the picture**
-
-
-![enter image description here](https://i.postimg.cc/sXjXg7X2/Screen-Shot-2022-09-13-at-10-14-22-PM.png)
-
-
-
-
-**Now after creating Book we can call Checkout fuction which look like this**
-
-
-![enter image description here](https://i.postimg.cc/nzSD80kx/Screen-Shot-2022-09-13-at-10-18-41-PM.png)
