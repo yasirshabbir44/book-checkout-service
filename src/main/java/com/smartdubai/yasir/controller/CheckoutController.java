@@ -21,27 +21,15 @@ import java.util.List;
 import static com.smartdubai.yasir.util.ResponseCode.*;
 
 @RestController
-@RequestMapping("C")
+@RequestMapping("/api/checkout")
 @AllArgsConstructor
 public class CheckoutController {
 
     private final CheckoutService checkoutService;
 
     @PostMapping
-    public ResponseEntity<?> checkout(@Valid @RequestBody CheckoutRequestDTO checkoutRequestDTO) {
-        return ResponseEntity.ok(Response.builder()
-                .code(CHECKOUT_CODE)
-                .message(CHECKOUT_MSG)
-                .body(checkoutService.checkout(checkoutRequestDTO))
-                .build());
+    public CheckoutResponseDTO checkout(@Valid @RequestBody CheckoutRequestDTO checkoutRequestDTO) {
+        return checkoutService.checkout(checkoutRequestDTO);
     }
 
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(BookException.class)
-    public ResponseEntity handleValidationExceptions(BookException ex) {
-        return ResponseEntity
-                .badRequest()
-                .body(Response.builder().message(ex.getMessage()).code(ex.getExceptionCode()).build());
-    }
 }
