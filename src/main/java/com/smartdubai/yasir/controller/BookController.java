@@ -56,7 +56,7 @@ public class BookController {
 
 
     @PutMapping
-    public ResponseEntity<?> put(@Valid @RequestBody BookDTO bookDTO) {
+    public ResponseEntity<?> updateBook(@Valid @RequestBody BookDTO bookDTO) {
 
         return ResponseEntity.ok(Response.builder()
                 .code(CREATE_BOOK_CODE).message(CREATE_BOOK_MSG)
