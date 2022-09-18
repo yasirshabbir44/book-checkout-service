@@ -54,10 +54,8 @@ public class BookServiceTest {
 
         List<BookDTO> bookDTOS = List.of(BookDTO.builder().id(1l)
                 .author("Yasir")
-                .createDate(new Date())
                 .description("Coding")
                 .isbn("111-222-333")
-                .modifyDate(new Date())
                 .price(200f)
                 .type("fiction")
                 .name("Java Book")
@@ -91,10 +89,8 @@ public class BookServiceTest {
 
         BookDTO bookDTO = BookDTO.builder().id(1l)
                 .author("Yasir")
-                .createDate(new Date())
                 .description("Coding")
                 .isbn("111-222-333")
-                .modifyDate(new Date())
                 .price(200f)
                 .type("fiction")
                 .name("Java Book")
@@ -128,10 +124,8 @@ public class BookServiceTest {
 
         BookDTO bookDTO = BookDTO.builder()
                 .author("Yasir")
-                .createDate(new Date())
                 .description("Coding")
                 .isbn("111-222-333")
-                .modifyDate(new Date())
                 .price(200f)
                 .type("fiction")
                 .name("Java Book")
@@ -164,10 +158,8 @@ public class BookServiceTest {
 
         BookDTO bookDTO = BookDTO.builder().id(1l)
                 .author("Yasir")
-                .createDate(new Date())
                 .description("Coding")
                 .isbn("111-222-333")
-                .modifyDate(new Date())
                 .price(200f)
                 .type("fiction")
                 .name("Java Book")
