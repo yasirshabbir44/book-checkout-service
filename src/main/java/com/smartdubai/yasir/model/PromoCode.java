@@ -7,12 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Builder(toBuilder = true)
 @Table(name = "promo_code")
-@NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
 public class PromoCode {
 
     @Id
