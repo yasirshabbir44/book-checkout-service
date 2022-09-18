@@ -33,3 +33,8 @@ docker build . --tag app
 docker run -it -p8080:8080 app:latest .
 ```
 
+
+
+### Promo Code
+- VISA   10%
+- SMART  20%
