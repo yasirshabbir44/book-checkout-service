@@ -8,6 +8,8 @@ import com.smartdubai.yasir.repository.BookTypeRepository;
 import com.smartdubai.yasir.service.BookService;
 import com.smartdubai.yasir.service.CheckoutService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,6 +19,9 @@ import java.util.concurrent.atomic.AtomicReference;
 @Service
 @AllArgsConstructor
 public class CheckoutServiceImpl implements CheckoutService {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(CheckoutServiceImpl.class);
 
     private final BookService bookService;
     private final BookTypeRepository bookTypeRepository;
@@ -34,15 +39,23 @@ public class CheckoutServiceImpl implements CheckoutService {
                         final Book book = bookService.getBookById(val.getBookId());
                         final Double totalPrice = Double.valueOf(book.getPrice() * val.getQuantity());
                         final Double finalPrice = totalPrice - ( getDiscountOnBook(book) * val.getQuantity());
+
+                        logger.info("Book :" + book.getId() + " Book Price :" + book.getPrice() + " final Price : " + finalPrice);
+
                         return finalPrice;
                     }).sum();
+
+
 
                     return Optional.ofNullable(checkoutRequestDTO.getPromoCode())
                             .map(val->{
                                 return promoCodeRepository.findById(checkoutRequestDTO.getPromoCode())
                                         .map(promoCode -> {
                                            var finalPrice = finalPriceAfterDiscount - (finalPriceAfterDiscount * promoCode.getDiscount());
-                                            return CheckoutResponseDTO.builder().total(finalPrice).build();
+
+                                            logger.info("PromoCode = "+ promoCode.getPromoCode() +" , Discount :" +promoCode.getDiscount()
+                                                    +" , Final price after Promo Code = "+ finalPrice);
+                                           return CheckoutResponseDTO.builder().total(finalPrice).build();
                                         }).orElse(CheckoutResponseDTO.builder().total(finalPriceAfterDiscount).build());
 
                             })
@@ -59,6 +72,8 @@ public class CheckoutServiceImpl implements CheckoutService {
     }
 
     private double getDiscountOnBook(Book book) {
+
+        logger.debug("Book Type:" + book.getType());
         return Optional.ofNullable(book)
                 .map(val -> bookTypeRepository.findById(book.getType())
                         .map(bookType -> book.getPrice() * bookType.getDiscount())

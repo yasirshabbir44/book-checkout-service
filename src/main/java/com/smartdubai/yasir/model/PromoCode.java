@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "promo_code")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class PromoCode {
 

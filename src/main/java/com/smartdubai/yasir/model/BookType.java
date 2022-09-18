@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "book_type")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class BookType {
 
