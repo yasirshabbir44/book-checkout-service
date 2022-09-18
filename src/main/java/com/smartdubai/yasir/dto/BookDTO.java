@@ -31,9 +31,6 @@ public class BookDTO {
 
     private String isbn;
 
-    private Date createDate;
-
-    private Date modifyDate;
 
 
     @Override

@@ -1,10 +1,10 @@
 
 
-insert into book (id, name, description, author, type, price, isbn)
-values(1, 'Algorithm', 'Algorithm', 'Yasir', 'fiction',  200, '111-222-333');
+insert into book ( name, description, author, type, price, isbn)
+values('Algorithm', 'Algorithm', 'Yasir', 'fiction',  200, '111-222-333');
 
-insert into book (id, name, description, author, type, price, isbn)
-values(2, 'Database', 'DB', 'Yasir', 'comic',  200, '112-223-334');
+insert into book ( name, description, author, type, price, isbn)
+values('Database', 'DB', 'Yasir', 'comic',  200, '112-223-334');
 
 insert into book_type
 values('fiction','0.10');

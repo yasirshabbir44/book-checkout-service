@@ -84,8 +84,6 @@ public class BookServiceImpl implements BookService {
                 .type(book.getType())
                 .description(book.getDescription())
                 .author(book.getAuthor())
-                .createDate(book.getCreateDate())
-                .modifyDate(book.getModifyDate())
                 .build();
     }
 
