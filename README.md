@@ -10,7 +10,7 @@ THis REST API for an online bookstore, where the user can perform the following 
 In this Project we used following
 
 - Spring Boot
-- Java 14
+- Java 17
 - SpringData along with InMemoryDB
 - SwaggerUI
 - Lombok
@@ -38,8 +38,16 @@ docker run -it -p8080:8080 app:latest .
 
 
 
-#### * SwaggerUI
+##  SwaggerUI
 
 `http://localhost:8080/swagger-ui/index.html`
 
-<img alt="Screenshot of Get All Request" height="500" src="./doc/Swagger.png" width="800"/>
+<img alt="Screenshot of Get All Request" height="500" src="./doc/swagger.png" width="800"/>
+
+
+
+#####  Test Coverage 
+
+By test cases mostly more than 90% code is covered through test cases
+
+<img alt="Screenshot of Get All Request" height="500" src="./doc/test-cov.png" width="500"/>
