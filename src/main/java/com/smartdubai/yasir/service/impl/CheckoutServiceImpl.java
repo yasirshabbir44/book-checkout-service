@@ -46,17 +46,14 @@ public class CheckoutServiceImpl implements CheckoutService {
 
 
                     return Optional.ofNullable(checkoutRequestDTO.getPromoCode())
-                            .map(val -> {
-                                return promoCodeRepository.findById(checkoutRequestDTO.getPromoCode())
-                                        .map(promoCode -> {
-                                            var finalPrice = finalPriceAfterDiscount - (finalPriceAfterDiscount * promoCode.getDiscount());
+                            .map(val -> promoCodeRepository.findById(checkoutRequestDTO.getPromoCode())
+                                    .map(promoCode -> {
+                                        var finalPrice = finalPriceAfterDiscount - (finalPriceAfterDiscount * promoCode.getDiscount());
 
-                                            logger.info("PromoCode = " + promoCode.getPromoCode() + " , Discount :" + promoCode.getDiscount()
-                                                    + " , Final price after Promo Code = " + finalPrice);
-                                            return CheckoutResponseDTO.builder().totalPrice(finalPrice).build();
-                                        }).orElse(CheckoutResponseDTO.builder().totalPrice(finalPriceAfterDiscount).build());
-
-                            })
+                                        logger.info("PromoCode = " + promoCode.getPromoCode() + " , Discount :" + promoCode.getDiscount()
+                                                + " , Final price after Promo Code = " + finalPrice);
+                                        return CheckoutResponseDTO.builder().totalPrice(finalPrice).build();
+                                    }).orElse(CheckoutResponseDTO.builder().totalPrice(finalPriceAfterDiscount).build()))
                             .orElse(CheckoutResponseDTO.builder().totalPrice(finalPriceAfterDiscount).build());
 
 
