@@ -1,8 +1,8 @@
 package com.smartdubai.yasir.controller;
 
 
-import com.smartdubai.yasir.exception.BookException;
 import com.smartdubai.yasir.dto.BookDTO;
+import com.smartdubai.yasir.exception.BookException;
 import com.smartdubai.yasir.service.BookService;
 import com.smartdubai.yasir.util.Response;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
 import java.util.List;
 
 import static com.smartdubai.yasir.util.ResponseCode.*;
@@ -28,7 +27,6 @@ public class BookController {
     public List<BookDTO> getAllBook() {
         return bookService.getAllBook();
     }
-
 
 
     @GetMapping("/{bookId}")
@@ -50,7 +48,7 @@ public class BookController {
 
         return ResponseEntity.ok(Response.builder()
                 .code(CREATE_BOOK_CODE).message(CREATE_BOOK_MSG)
-                        .body(bookService.save(bookDTO))
+                .body(bookService.save(bookDTO))
                 .build());
     }
 

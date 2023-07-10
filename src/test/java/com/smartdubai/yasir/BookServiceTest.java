@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -66,8 +67,8 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.getAllBook());
-        Assert.assertEquals(bookDTOS,bookService.getAllBook());
-        Assert.assertEquals(1,bookService.getAllBook().size());
+        Assert.assertEquals(bookDTOS, bookService.getAllBook());
+        Assert.assertEquals(1, bookService.getAllBook().size());
 
     }
 
@@ -101,8 +102,8 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.getBookById(1l));
-        Assert.assertEquals(book,bookService.getBookById(1l));
-        Assert.assertEquals(bookDTO,bookService.getBookDTOById(1l));
+        Assert.assertEquals(book, bookService.getBookById(1l));
+        Assert.assertEquals(bookDTO, bookService.getBookDTOById(1l));
 
     }
 
@@ -136,7 +137,7 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.save(bookDTO));
-        Assert.assertEquals(Long.valueOf(1l),bookService.save(bookDTO).getId());
+        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).getId());
 
     }
 
@@ -171,7 +172,7 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.update(bookDTO));
-        Assert.assertEquals(Long.valueOf(1l),bookService.save(bookDTO).getId());
+        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).getId());
 
     }
 

@@ -1,12 +1,8 @@
 package com.smartdubai.yasir.dto;
 
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Objects;
 
 @Builder(toBuilder = true)
@@ -30,7 +26,6 @@ public class BookDTO {
     private Float price;
 
     private String isbn;
-
 
 
     @Override

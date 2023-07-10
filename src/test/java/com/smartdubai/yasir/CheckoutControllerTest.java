@@ -34,12 +34,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CheckoutControllerTest {
 
 
-    private MockMvc mvc;
-
-    private CheckoutService checkoutService = Mockito.mock(CheckoutService.class);
-
     public static final MediaType APPLICATION_JSON = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype());
+    private MockMvc mvc;
+    private CheckoutService checkoutService = Mockito.mock(CheckoutService.class);
 
     @Before
     public void setup() {

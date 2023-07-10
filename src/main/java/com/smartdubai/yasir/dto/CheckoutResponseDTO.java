@@ -1,14 +1,14 @@
 package com.smartdubai.yasir.dto;
 
-import lombok.*;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @Getter
 public class CheckoutResponseDTO {
 
-   private Double total;
+    private Double total;
 
 }

@@ -11,7 +11,6 @@ import com.smartdubai.yasir.service.BookService;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.internal.util.reflection.Whitebox;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,8 +19,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -36,12 +33,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class BookControllerTest {
 
-    private MockMvc mvc;
-
-    private BookService bookService = Mockito.mock(BookService.class);
-
     public static final MediaType APPLICATION_JSON = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype());
+    private MockMvc mvc;
+    private BookService bookService = Mockito.mock(BookService.class);
 
     @Before
     public void setup() {
@@ -70,7 +65,6 @@ public class BookControllerTest {
 
         Mockito.verify(bookService, Mockito.times(1)).getAllBook();
     }
-
 
 
     @org.junit.Test
@@ -123,7 +117,7 @@ public class BookControllerTest {
                 .build();
         when(bookService.update(bookDTO)).thenReturn(bookDTO);
         mvc.perform(put("/api/book").
-                content(getJson(bookDTO)).contentType(APPLICATION_JSON)).andExpect( status().is2xxSuccessful());
+                content(getJson(bookDTO)).contentType(APPLICATION_JSON)).andExpect(status().is2xxSuccessful());
         Mockito.verify(bookService, Mockito.times(1)).update(bookDTO);
     }
 
@@ -144,7 +138,7 @@ public class BookControllerTest {
 
     @org.junit.Test
     public void testDeleteBookErrorArgument() throws Exception {
-        when(bookService.delete(2l)).thenThrow(new BookException(404,"NotFound"));
+        when(bookService.delete(2l)).thenThrow(new BookException(404, "NotFound"));
         mvc.perform(delete("/api/book/2")).andExpect(status().is4xxClientError());
         Mockito.verify(bookService, Mockito.times(1)).delete(2l);
     }

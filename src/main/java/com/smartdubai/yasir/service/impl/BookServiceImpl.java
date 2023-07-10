@@ -8,10 +8,7 @@ import com.smartdubai.yasir.repository.BookRepository;
 import com.smartdubai.yasir.service.BookService;
 import com.smartdubai.yasir.util.ResponseCode;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,7 +24,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDTO> getAllBook() {
-       return  bookRepository.findAll().stream().map(this::map).collect(Collectors.toList());
+        return bookRepository.findAll().stream().map(this::map).collect(Collectors.toList());
     }
 
 
@@ -50,7 +47,7 @@ public class BookServiceImpl implements BookService {
         Book book = this.map(bookDTO);
         book = bookRepository.save(book);
 
-       return this.map(book);
+        return this.map(book);
     }
 
     @Override
@@ -70,12 +67,12 @@ public class BookServiceImpl implements BookService {
                 .map(book -> this.map(bookDTO))
                 .map(book -> bookRepository.save(book))
                 .map(this::map)
-                .orElseThrow(()->new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
+                .orElseThrow(() -> new BookException(ResponseCode.DATA_NOT_FOUND_CODE, ResponseCode.DATA_NOT_FOUND_MSG));
 
     }
 
 
-    private BookDTO map(Book book){
+    private BookDTO map(Book book) {
         return BookDTO.builder()
                 .id(book.getId())
                 .isbn(book.getIsbn())
@@ -88,7 +85,7 @@ public class BookServiceImpl implements BookService {
     }
 
 
-    private Book map(BookDTO bookDTO){
+    private Book map(BookDTO bookDTO) {
         return Book.builder()
                 .id(bookDTO.getId())
                 .isbn(bookDTO.getIsbn())

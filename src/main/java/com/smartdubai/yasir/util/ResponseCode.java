@@ -13,7 +13,7 @@ public final class ResponseCode {
 
 
     public static final Integer CHECKOUT_CODE = 1101;
-    
+
     public static final String SUCCESS_DATA_MSG = "Data retrieve successully";
     public static final String DATA_NOT_FOUND_MSG = "Data Not found";
 

@@ -9,6 +9,7 @@ public interface BookService {
     public List<BookDTO> getAllBook();
 
     public Book getBookById(Long id);
+
     public BookDTO getBookDTOById(Long id);
 
     public BookDTO save(BookDTO menuDTO);

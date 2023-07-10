@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info=@Info(title="Book Store",version="1.0", description = "Assignment", termsOfService = "Please adhere to policies"))
+@OpenAPIDefinition(info = @Info(title = "Book Store", version = "1.0", description = "Assignment", termsOfService = "Please adhere to policies"))
 public class SmartDubaiTestApplication {
 
     public static void main(String[] args) {

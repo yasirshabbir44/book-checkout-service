@@ -2,12 +2,13 @@
 
 THis REST API for an online bookstore, where the user can perform the following operations:
 
-- CRUD operations on Books 
+- CRUD operations on Books
 - Checkout operation for single or multiple books which will return the total payable amount.
 
 ### Project Description
 
-In this Project we used following 
+In this Project we used following
+
 - Spring Boot
 - Java 14
 - SpringData along with InMemoryDB
@@ -15,13 +16,9 @@ In this Project we used following
 - Lombok
 - Docker
 
-
-
-
-
 ### Run terminal terminal
-java -jar SmartDubaiTest-1.0.jar
 
+java -jar SmartDubaiTest-1.0.jar
 
 ### Run through Docker
 
@@ -33,8 +30,7 @@ docker build . --tag app
 docker run -it -p8080:8080 app:latest .
 ```
 
-
-
 ### Promo Code
-- VISA   10%
-- SMART  20%
+
+- VISA 10%
+- SMART 20%
