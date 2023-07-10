@@ -1,8 +1,9 @@
 package com.smartdubai.yasir.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
+
 import java.util.Objects;
 
 @Builder(toBuilder = true)
