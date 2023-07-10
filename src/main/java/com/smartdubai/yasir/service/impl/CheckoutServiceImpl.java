@@ -35,9 +35,9 @@ public class CheckoutServiceImpl implements CheckoutService {
                 .map(checkoutDTOList -> {
 
                     Double finalPriceAfterDiscount = checkoutDTOList.stream().mapToDouble(val -> {
-                        final Book book = bookService.getBookById(val.getBookId());
-                        final Double totalPrice = Double.valueOf(book.getPrice() * val.getQuantity());
-                        final Double finalPrice = totalPrice - (getDiscountOnBook(book) * val.getQuantity());
+                        final Book book = bookService.getBookById(val.bookId());
+                        final Double totalPrice = Double.valueOf(book.getPrice() * val.quantity());
+                        final Double finalPrice = totalPrice - (getDiscountOnBook(book) * val.quantity());
 
                         logger.info("Book :" + book.getId() + " Book Price :" + book.getPrice() + " final Price : " + finalPrice);
 

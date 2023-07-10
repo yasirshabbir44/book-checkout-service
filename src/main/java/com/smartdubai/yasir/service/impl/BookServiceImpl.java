@@ -63,7 +63,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDTO update(BookDTO bookDTO) {
 
-        return bookRepository.findById(bookDTO.getId())
+        return bookRepository.findById(bookDTO.id())
                 .map(book -> this.map(bookDTO))
                 .map(book -> bookRepository.save(book))
                 .map(this::map)
@@ -87,13 +87,13 @@ public class BookServiceImpl implements BookService {
 
     private Book map(BookDTO bookDTO) {
         return Book.builder()
-                .id(bookDTO.getId())
-                .isbn(bookDTO.getIsbn())
-                .price(bookDTO.getPrice())
-                .name(bookDTO.getName())
-                .type(bookDTO.getType())
-                .description(bookDTO.getDescription())
-                .author(bookDTO.getAuthor())
+                .id(bookDTO.id())
+                .isbn(bookDTO.isbn())
+                .price(bookDTO.price())
+                .name(bookDTO.name())
+                .type(bookDTO.type())
+                .description(bookDTO.description())
+                .author(bookDTO.author())
                 .build();
     }
 

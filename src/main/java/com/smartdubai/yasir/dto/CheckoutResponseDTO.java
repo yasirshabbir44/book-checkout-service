@@ -5,10 +5,4 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Builder(toBuilder = true)
-@AllArgsConstructor
-@Getter
-public class CheckoutResponseDTO {
-
-    private Double total;
-
-}
+public record CheckoutResponseDTO(Double total){}

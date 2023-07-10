@@ -1,16 +1,7 @@
 package com.smartdubai.yasir.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Builder(toBuilder = true)
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-public class CheckoutDTO {
-
-    private Long bookId;
-    private Long quantity;
-
-
-}
+public record CheckoutDTO(Long bookId,Long quantity) {}
