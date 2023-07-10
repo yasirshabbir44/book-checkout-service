@@ -1,5 +1,5 @@
 FROM openjdk:17
 EXPOSE 8080
-ARG JAR_FILE=target/SmartDubaiTest-1.0.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+MAINTAINER Yasir-Shabbir
+COPY target/SmartDubaiTest-1.0.jar smart-dubai-test-1.0.0.jar
+ENTRYPOINT ["java","-jar","/smart-dubai-test-1.0.0.jar"]

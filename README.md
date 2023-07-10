@@ -16,9 +16,29 @@ In this Project we used following
 - Lombok
 - Docker
 
-### Run terminal terminal
+## Requirements
 
-java -jar SmartDubaiTest-1.0.jar
+- Java Development Kit (JDK) 11 or higher
+- Apache Maven
+- cURL or an API testing tool (e.g., Postman)
+
+## Getting Started
+
+Clone the repository:
+
+   ```bash
+   git clone https://github.com/yasirshabbir44/book-checkout-service.git
+```
+   
+
+
+## Running the application through terminal
+
+You can run your application in terminal
+```shell script
+./mvnw spring-boot:run
+```
+
 
 ### Run through Docker
 

@@ -137,7 +137,7 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.save(bookDTO));
-        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).getId());
+        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).id());
 
     }
 
@@ -172,7 +172,7 @@ public class BookServiceTest {
 
         Assert.assertNotNull(bookService);
         Assert.assertNotNull(bookService.update(bookDTO));
-        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).getId());
+        Assert.assertEquals(Long.valueOf(1l), bookService.save(bookDTO).id());
 
     }
 
