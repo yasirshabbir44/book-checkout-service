@@ -36,7 +36,7 @@ Clone the repository:
 
 You can run your application in terminal
 ```shell script
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 
@@ -44,10 +44,11 @@ You can run your application in terminal
 
 First go to Project path through Terminal and run this command
 
+```shell script
+docker build --tag=smart-dubai-test:latest .
 ```
-$> docker build --tag=smart-dubai-test:latest .
-
-$> docker run -p8887:8888 smart-dubai-test:latest
+```shell script
+docker run -p8887:8888 smart-dubai-test:latest
 ```
 ## Endpoints
 The following RESTful endpoints are available:
