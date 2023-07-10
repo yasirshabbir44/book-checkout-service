@@ -34,3 +34,12 @@ docker run -it -p8080:8080 app:latest .
 
 - VISA 10%
 - SMART 20%
+
+
+
+
+#### * SwaggerUI
+
+`http://localhost:8080/swagger-ui/index.html`
+
+<img alt="Screenshot of Get All Request" height="500" src="./doc/Swagger.png" width="800"/>
