@@ -45,9 +45,9 @@ You can run your application in terminal
 First go to Project path through Terminal and run this command
 
 ```
-docker build . --tag app
+$> docker build --tag=smart-dubai-test:latest .
 
-docker run -it -p8080:8080 app:latest .
+$> docker run -p8887:8888 smart-dubai-test:latest
 ```
 
 ### Promo Code
