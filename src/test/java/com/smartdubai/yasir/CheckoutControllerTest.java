@@ -55,7 +55,7 @@ public class CheckoutControllerTest {
 
 
         CheckoutResponseDTO checkoutResponseDTO = CheckoutResponseDTO.builder()
-                .total(320d)
+                .totalPrice(320d)
                 .build();
 
         when(checkoutService.checkout(checkoutRequestDTO)).thenReturn(checkoutResponseDTO);

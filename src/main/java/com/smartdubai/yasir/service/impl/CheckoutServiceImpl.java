@@ -53,15 +53,15 @@ public class CheckoutServiceImpl implements CheckoutService {
 
                                             logger.info("PromoCode = " + promoCode.getPromoCode() + " , Discount :" + promoCode.getDiscount()
                                                     + " , Final price after Promo Code = " + finalPrice);
-                                            return CheckoutResponseDTO.builder().total(finalPrice).build();
-                                        }).orElse(CheckoutResponseDTO.builder().total(finalPriceAfterDiscount).build());
+                                            return CheckoutResponseDTO.builder().totalPrice(finalPrice).build();
+                                        }).orElse(CheckoutResponseDTO.builder().totalPrice(finalPriceAfterDiscount).build());
 
                             })
-                            .orElse(CheckoutResponseDTO.builder().total(finalPriceAfterDiscount).build());
+                            .orElse(CheckoutResponseDTO.builder().totalPrice(finalPriceAfterDiscount).build());
 
 
                 })
-                .orElse(CheckoutResponseDTO.builder().total(0.0d).build());
+                .orElse(CheckoutResponseDTO.builder().totalPrice(0.0d).build());
 
 
     }

@@ -49,6 +49,21 @@ $> docker build --tag=smart-dubai-test:latest .
 
 $> docker run -p8887:8888 smart-dubai-test:latest
 ```
+## Endpoints
+The following RESTful endpoints are available:
+
+#### Book
+
+* GET /api/book - Retrieve a list of all book.
+* GET /api/book/{id} - Retrieve a specific book by ID.
+* POST /api/book - Create a new book.
+* PUT /api/book - Update an existing book.
+* DELETE /api/book/{id} - Delete a book.
+
+
+#### Checkout
+* POST /api/checkout - For Checkout
+
 
 ### Promo Code
 
@@ -56,7 +71,46 @@ $> docker run -p8887:8888 smart-dubai-test:latest
 - SMART 20%
 
 
+### Postman Sample call
+* List of all available Book
 
+  `curl --location 'http://localhost:8080/api/book'
+  `
+
+
+  <img alt="Screenshot of Get All Request" height="500" src="./doc/get-book.png" width="800"/>
+
+
+* Checkout without promo code
+
+  `curl --location 'http://localhost:8080/api/checkout' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "checkoutList":[
+  {
+  "bookId":1,
+  "quantity":2
+  }
+  ]
+  }'
+  `
+  <img alt="Screenshot of Checkout" height="500" src="./doc/checkout-without-promo.png" width="800"/>
+
+* Checkout with Promo code
+
+  `curl --location 'http://localhost:8080/api/checkout' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "promoCode":"VISA",
+  "checkoutList":[
+  {
+  "bookId":1,
+  "quantity":2
+  }
+  ]
+  }'
+  `
+  <img alt="Screenshot of Checkout" height="500" src="./doc/checkout-with-promo.png" width="800"/>
 
 ##  SwaggerUI
 

@@ -72,6 +72,6 @@ public class CheckoutServiceTest {
 
         CheckoutResponseDTO checkoutResponseDTO = checkoutService.checkout(requestDTO);
         Assert.assertNotNull(checkoutResponseDTO);
-        Assert.assertTrue(checkoutResponseDTO.total() == 288d);
+        Assert.assertTrue(checkoutResponseDTO.totalPrice() == 288d);
     }
 }
