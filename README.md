@@ -71,6 +71,21 @@ The following RESTful endpoints are available:
 - SMART 20%
 
 
+##  SwaggerUI
+
+`http://localhost:8080/swagger-ui/index.html`
+
+<img alt="Screenshot of Get All Request" height="500" src="./doc/swagger.png" width="800"/>
+
+
+
+#####  Test Coverage
+
+By test cases mostly more than 90% code is covered through test cases
+
+<img alt="Screenshot of Get All Request" height="500" src="./doc/test-cov.png" width="500"/>
+
+
 ### Postman Sample call
 * List of all available Book
 
@@ -112,16 +127,3 @@ The following RESTful endpoints are available:
   `
   <img alt="Screenshot of Checkout" height="500" src="./doc/checkout-with-promo.png" width="800"/>
 
-##  SwaggerUI
-
-`http://localhost:8080/swagger-ui/index.html`
-
-<img alt="Screenshot of Get All Request" height="500" src="./doc/swagger.png" width="800"/>
-
-
-
-#####  Test Coverage 
-
-By test cases mostly more than 90% code is covered through test cases
-
-<img alt="Screenshot of Get All Request" height="500" src="./doc/test-cov.png" width="500"/>
