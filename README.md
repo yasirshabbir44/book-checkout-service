@@ -4,6 +4,8 @@ THis REST API for an online bookstore, where the user can perform the following 
 
 - CRUD operations on Books
 - Checkout operation for single or multiple books which will return the total payable amount.
+Also introduced the Basic Security level also to protect the API rather than accessing directly.
+
 
 ### Project Description
 
@@ -15,12 +17,20 @@ In this Project we used following
 - SwaggerUI
 - Lombok
 - Docker
+- Spring Security
+- BCrypt Encoding for Password
 
 ## Requirements
 
 - Java Development Kit (JDK) 11 or higher
 - Apache Maven
 - cURL or an API testing tool (e.g., Postman)
+
+### Default User & Password
+username : admin
+
+password : admin
+
 
 ## Getting Started
 
@@ -90,17 +100,19 @@ By test cases mostly more than 90% code is covered through test cases
 ### Postman Sample call
 * List of all available Book
 
-  `curl --location 'http://localhost:8080/api/book'
+  `curl --location 'localhost:8080/api/book' \
+  --header 'Authorization: Basic YWRtaW46YWRtaW4='
   `
 
-
   <img alt="Screenshot of Get All Request" height="500" src="./doc/get-book.png" width="800"/>
+
 
 
 * Checkout without promo code
 
   `curl --location 'http://localhost:8080/api/checkout' \
   --header 'Content-Type: application/json' \
+  --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
   --data '{
   "checkoutList":[
   {
@@ -116,6 +128,7 @@ By test cases mostly more than 90% code is covered through test cases
 
   `curl --location 'http://localhost:8080/api/checkout' \
   --header 'Content-Type: application/json' \
+  --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
   --data '{
   "promoCode":"VISA",
   "checkoutList":[
