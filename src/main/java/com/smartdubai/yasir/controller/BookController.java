@@ -83,10 +83,10 @@ public class BookController {
     @Operation(summary = "Method create the Books")
     public ResponseEntity<?> createBook(@Valid @RequestBody BookDTO bookDTO) {
 
-        return ResponseEntity.ok(Response.builder()
+        return new ResponseEntity(Response.builder()
                 .code(CREATE_BOOK_CODE).message(CREATE_BOOK_MSG)
                 .body(bookService.save(bookDTO))
-                .build());
+                .build(), HttpStatus.CREATED);
     }
 
 
