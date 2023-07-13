@@ -35,8 +35,12 @@ public class BookController {
             @ApiResponse(responseCode = "500", description = "Internal Error.")
     })
     @Operation(summary = "Method return list of Books")
-    public List<BookDTO> getAllBook() {
-        return bookService.getAllBook();
+    public ResponseEntity<?> getAllBook() {
+
+        return ResponseEntity.ok(Response.builder()
+                .code(GET_ALL_BOOK_CODE).message(GET_ALL_BOOK_MSG)
+                .body(bookService.getAllBook())
+                .build());
     }
 
 
@@ -47,8 +51,12 @@ public class BookController {
             @ApiResponse(responseCode = "500", description = "Internal Error.")
     })
     @Operation(summary = "Method return Book")
-    public BookDTO getBook(@PathVariable("bookId") long bookId) {
-        return bookService.getBookDTOById(bookId);
+    public ResponseEntity<?> getBook(@PathVariable("bookId") long bookId) {
+
+        return ResponseEntity.ok(Response.builder()
+                .code(GET_BOOK_CODE).message(GET_BOOK_MSG)
+                .body(bookService.getBookDTOById(bookId))
+                .build());
     }
 
 
@@ -92,7 +100,7 @@ public class BookController {
     public ResponseEntity<?> updateBook(@Valid @RequestBody BookDTO bookDTO) {
 
         return ResponseEntity.ok(Response.builder()
-                .code(CREATE_BOOK_CODE).message(CREATE_BOOK_MSG)
+                .code(UPDATE_BOOK_CODE).message(UPDATE_BOOK_MSG)
                 .body(bookService.update(bookDTO))
                 .build());
     }

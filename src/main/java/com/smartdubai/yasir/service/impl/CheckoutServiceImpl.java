@@ -27,6 +27,13 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     private final PromoCodeRepository promoCodeRepository;
 
+
+    /**
+     * Method return response of Checkout, this method accepting List of BookId and Quantity along with PromoCode.
+     * Each PromoCode having different kind of discount like Visa is 10% and Smart is 20%.
+     * After calculating the all books in Cart with quantity, it will response with TotalPrice after dicsount in case promo code applied.
+    * @Param CheckoutRequestDTO
+    * */
     @Override
     public CheckoutResponseDTO checkout(CheckoutRequestDTO checkoutRequestDTO) {
 
